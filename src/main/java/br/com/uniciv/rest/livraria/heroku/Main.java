@@ -20,7 +20,7 @@ public class Main {
         final Server server = new Server(Integer.valueOf(webPort));
         final WebAppContext root = new WebAppContext();
 
-        root.setContextPath("/");
+        root.setContextPath("/livraria-virtual");
         // Parent loader priority is a class loader setting that Jetty accepts.
         // By default Jetty will behave like most web containers in that it will
         // allow your application to replace non-server libraries that are part of the
