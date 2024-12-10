@@ -2,6 +2,7 @@ package br.com.uniciv.rest.livraria;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
@@ -18,4 +19,9 @@ public class LivroResource {
 		return livros;
 	}
 	
+	@GET
+	@Path("/{isbn}")
+	public Livro getLivroPorIsbn(@PathParam("isbn") String isbn) {
+	    return livroRepo.getLivroPorIsbn(isbn);
+	}
 }
