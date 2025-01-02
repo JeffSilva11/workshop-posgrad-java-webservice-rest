@@ -32,4 +32,11 @@ public class LivroRepositorio {
 		throw new LivroNaoEncontradoException();
 	}
 	
+	public void adicionaLivro(Livro livro) {
+		if (livros.containsKey(livro.getId())) {
+		    throw new LivroExistenteException();
+		}
+	    livros.put(livro.getId(), livro);
+	}
+	
 }
