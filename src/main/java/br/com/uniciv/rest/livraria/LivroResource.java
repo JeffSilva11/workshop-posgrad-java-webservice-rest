@@ -3,6 +3,7 @@ package br.com.uniciv.rest.livraria;
 import java.net.URI;
 
 import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
@@ -68,6 +69,16 @@ public class LivroResource {
 		    throw new WebApplicationException(Status.NOT_FOUND);
 		}    
 	    return Response.ok().entity(livro).build();
+	}
+	
+	@DELETE
+	@Path("/{id}")
+	public void removeLivro(@PathParam("id") Long id) {
+	    try {
+	        livroRepo.removeLivro(id);
+	    } catch (LivroNaoEncontradoException e) {
+	        throw new WebApplicationException(Status.NOT_FOUND);
+	    }
 	}
 	
 }

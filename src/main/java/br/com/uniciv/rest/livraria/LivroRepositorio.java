@@ -52,4 +52,12 @@ public class LivroRepositorio {
 	    livros.put(livro.getId(), livro);	    
 	}
 	
+	public void removeLivro(Long id) {
+	    if (livros.containsKey(id)) {
+	        livros.remove(id);
+	    } else {
+	        throw new LivroNaoEncontradoException();
+	    }
+	}
+	
 }
